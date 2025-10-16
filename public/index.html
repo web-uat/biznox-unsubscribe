@@ -111,27 +111,31 @@
       alert("Missing unsubscribe ID or reason.");
       return;
     }
+    else{
+       formSection.style.display = 'none';
+      thankyou.style.display = 'block';
+    }
 
-    fetch('/.netlify/functions/unsubscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id, reason })
-    })
-    .then(res => {
-      if (!res.ok) {
-        return res.text().then(err => { throw new Error(err); });
-      }
-      return res.json();
-    })
-    .then(() => {
-      formSection.style.display = 'none';
-      thankyou.style.display = 'block';
-    })
-    .catch(err => {
-     formSection.style.display = 'none';
-      thankyou.style.display = 'block';
-    });
-  });
+  //   fetch('/.netlify/functions/unsubscribe', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ id, reason })
+  //   })
+  //   .then(res => {
+  //     if (!res.ok) {
+  //       return res.text().then(err => { throw new Error(err); });
+  //     }
+  //     return res.json();
+  //   })
+  //   .then(() => {
+  //     formSection.style.display = 'none';
+  //     thankyou.style.display = 'block';
+  //   })
+  //   .catch(err => {
+  //    formSection.style.display = 'none';
+  //     thankyou.style.display = 'block';
+  //   });
+  // });
 </script>
 
 </body>
