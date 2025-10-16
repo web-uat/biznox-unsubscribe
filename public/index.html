@@ -105,37 +105,16 @@
     e.preventDefault();
 
     const reason = document.getElementById('reason').value.trim();
-    const id = new URLSearchParams(window.location.search).get("id");
 
-    if (!reason || !id) {
-      alert("Missing unsubscribe ID or reason.");
+    if (!reason) {
+      alert("Please enter your reason for unsubscribing.");
       return;
     }
-    else{
-       formSection.style.display = 'none';
-      thankyou.style.display = 'block';
-    }
 
-  //   fetch('/.netlify/functions/unsubscribe', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ id, reason })
-  //   })
-  //   .then(res => {
-  //     if (!res.ok) {
-  //       return res.text().then(err => { throw new Error(err); });
-  //     }
-  //     return res.json();
-  //   })
-  //   .then(() => {
-  //     formSection.style.display = 'none';
-  //     thankyou.style.display = 'block';
-  //   })
-  //   .catch(err => {
-  //    formSection.style.display = 'none';
-  //     thankyou.style.display = 'block';
-  //   });
-  // });
+    // Show thank you message immediately without API call
+    formSection.style.display = 'none';
+    thankyou.style.display = 'block';
+  });
 </script>
 
 </body>
